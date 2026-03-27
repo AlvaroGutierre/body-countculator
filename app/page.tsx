@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { supabase } from '@/lib/supabase'
 import LandingContent from './LandingContent'
 
-export const revalidate = 60
+export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Body Countculator',
