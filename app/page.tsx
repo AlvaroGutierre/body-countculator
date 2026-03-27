@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
-import { supabase } from '@/lib/supabase'
 import LandingContent from './LandingContent'
+import { getSupabaseServer } from '@/lib/supabase-server'
 
-export const dynamic = 'force-dynamic'
+export const revalidate = 60
 
 export const metadata: Metadata = {
   title: 'Body Countculator',
@@ -11,23 +11,29 @@ export const metadata: Metadata = {
 }
 
 async function getStats(): Promise<{ submissions: number | null; feedbacks: number | null }> {
-  console.log('Landing getStats - supabase exists:', !!supabase)
-
-  if (!supabase) {
-    console.error('Landing getStats - supabase is null')
-    return { submissions: null, feedbacks: null }
-  }
-
   try {
-    const { data, error } = await supabase.rpc('get_public_stats')
+    const supabase = getSupabaseServer()
 
-    console.log('Landing getStats - data:', data)
-    console.log('Landing getStats - error:', error)
+    const [
+      { count: submissions, error: submissionsError },
+      { count: feedbacks, error: feedbacksError },
+    ] = await Promise.all([
+      supabase.from('submissions').select('*', { count: 'exact', head: true }),
+      supabase.from('feedback').select('*', { count: 'exact', head: true }),
+    ])
 
-    if (error || !data) return { submissions: null, feedbacks: null }
+    if (submissionsError) {
+      console.error('Landing getStats - submissions error:', submissionsError)
+    }
 
-    const s = data as { submissions_count: number; feedbacks_count: number }
-    return { submissions: s.submissions_count, feedbacks: s.feedbacks_count }
+    if (feedbacksError) {
+      console.error('Landing getStats - feedback error:', feedbacksError)
+    }
+
+    return {
+      submissions: submissions ?? null,
+      feedbacks: feedbacks ?? null,
+    }
   } catch (err) {
     console.error('Landing getStats - exception:', err)
     return { submissions: null, feedbacks: null }
