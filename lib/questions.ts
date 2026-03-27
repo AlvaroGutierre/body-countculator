@@ -259,7 +259,7 @@ export const ALL_QUESTIONS: Question[] = [
 
   {
     id: 'meeting_new_people',
-    text: '¿Con qué frecuencia conoces gente nueva?',
+    text: '¿Con qué frecuencia acabas conociendo gente nueva?',
     type: 'single-choice',
     options: [
       { label: 'Casi nunca',   value: 'casi_nunca'   },
@@ -349,7 +349,7 @@ export const ALL_QUESTIONS: Question[] = [
   },
   {
     id: 'easy_date',
-    text: '¿Consigues citas fácil?',
+    text: '¿Ligas cuando te lo propones?',
     type: 'single-choice',
     showIf: highSocialOrApps,
     options: [
@@ -375,7 +375,7 @@ export const ALL_QUESTIONS: Question[] = [
   },
   {
     id: 'social_circle_opportunities',
-    text: '¿Tu círculo te da oportunidades de conocer gente?',
+    text: '¿Tu entorno o tus planes te facilitan conocer gente nueva?',
     type: 'single-choice',
     showIf: (a) =>
       a.living_environment === 'gran_ciudad' ||

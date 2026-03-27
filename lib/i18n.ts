@@ -251,7 +251,7 @@ const es: Translations = {
       options: { nada: 'No', poco: 'Poco', normal: 'Normal', bastante: 'Bastante', mucho: 'Mucho' },
     },
     meeting_new_people: {
-      text: '¿Con qué frecuencia conoces gente nueva?',
+      text: '¿Con qué frecuencia acabas conociendo gente nueva?',
       options: {
         casi_nunca: 'Casi nunca', a_veces: 'A veces',
         bastante: 'Bastante', muy_a_menudo: 'Muy a menudo',
@@ -285,7 +285,7 @@ const es: Translations = {
       options: { casi_nunca: 'Casi nunca', a_veces: 'A veces', bastante: 'Bastante', mucho: 'Mucho' },
     },
     easy_date: {
-      text: '¿Consigues citas fácil?',
+      text: '¿Ligas cuando te lo propones?',
       options: { casi_nunca: 'Casi nunca', a_veces: 'A veces', bastante: 'Sí, bastante', casi_siempre: 'Siempre' },
     },
     conversation_difficulty: {
@@ -293,7 +293,7 @@ const es: Translations = {
       options: { no: 'No, me sale natural', a_veces: 'A veces', bastante: 'Bastante', mucho: 'Mucho' },
     },
     social_circle_opportunities: {
-      text: '¿Tu círculo te da oportunidades de conocer gente?',
+      text: '¿Tu entorno o tus planes te facilitan conocer gente nueva?',
       options: { pocas: 'Pocas', algunas: 'Algunas', bastantes: 'Bastantes', muchas: 'Muchas' },
     },
   },
@@ -504,7 +504,7 @@ const en: Translations = {
       },
     },
     meeting_new_people: {
-      text: 'How often do you meet new people?',
+      text: 'How often do you end up meeting new people?',
       options: {
         casi_nunca: 'Almost never', a_veces: 'Sometimes',
         bastante: 'Fairly often', muy_a_menudo: 'Very often',
@@ -544,7 +544,7 @@ const en: Translations = {
       },
     },
     easy_date: {
-      text: 'Do you get dates easily?',
+      text: 'When you try, do you usually get a date?',
       options: {
         casi_nunca: 'Almost never', a_veces: 'Sometimes',
         bastante: 'Yes, fairly easily', casi_siempre: 'Almost always',
@@ -558,7 +558,7 @@ const en: Translations = {
       },
     },
     social_circle_opportunities: {
-      text: 'Does your social circle give you opportunities to meet people?',
+      text: 'Do your environment or plans make it easy to meet new people?',
       options: { pocas: 'Few', algunas: 'Some', bastantes: 'Quite a few', muchas: 'Many' },
     },
   },

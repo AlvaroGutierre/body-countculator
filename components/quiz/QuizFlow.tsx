@@ -15,8 +15,6 @@ import LanguageSelector from '@/components/LanguageSelector'
 
 type Phase = 'base' | 'midpoint' | 'extended'
 
-const REFERENCE_COUNT = 20
-
 // Glow layers — each activates at its precision threshold.
 // Colors are intentionally subtle: black always dominates.
 const GLOW_LAYERS = [
@@ -65,10 +63,14 @@ export default function QuizFlow() {
         ? extendedQuestions[currentIndex]
         : null
 
-  const overallPct = useMemo(
-    () => Math.min(100, Math.round((Object.keys(answers).length / REFERENCE_COUNT) * 100)),
-    [answers]
-  )
+  const overallPct = useMemo(() => {
+    const allVisible = [...baseQuestions, ...extendedQuestions]
+    if (allVisible.length === 0) return 0
+    const answeredVisible = allVisible.filter(q =>
+      Object.prototype.hasOwnProperty.call(answers, q.id)
+    ).length
+    return Math.min(99, Math.round((answeredVisible / allVisible.length) * 100))
+  }, [answers, baseQuestions, extendedQuestions])
 
   // ── Handlers ──────────────────────────────────────────────────────────────
 
