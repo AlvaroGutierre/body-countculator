@@ -116,6 +116,8 @@ const es: Translations = {
     sex: 'Sexo',
     orientation: 'Orientación',
     long_relationships: 'Relaciones largas',
+    current_relationship: 'Tiene pareja',
+    current_relationship_length: 'Tiempo en pareja',
     social_life: 'Vida social',
     dating_apps: 'Apps de citas',
     university: 'Carrera universitaria',
@@ -189,6 +191,19 @@ const es: Translations = {
       text: '¿Cuántas relaciones largas has tenido?',
       subtext: 'Más de 3 meses.',
       options: { ninguna: 'Ninguna', una: 'Una', dos: 'Dos', tres_mas: 'Tres o más' },
+    },
+    current_relationship: {
+      text: '¿Tienes pareja actualmente?',
+      options: { no: 'No', si: 'Sí' },
+    },
+    current_relationship_length: {
+      text: '¿Cuánto tiempo llevas con tu pareja?',
+      options: {
+        lt_1y: 'Menos de 1 año',
+        '1_2y': 'Entre 1 y 2 años',
+        '2_5y': 'Entre 2 y 5 años',
+        gt_5y: 'Más de 5 años',
+      },
     },
     social_life: {
       text: '¿Sales mucho?',
@@ -348,6 +363,8 @@ const en: Translations = {
     sex: 'Sex',
     orientation: 'Orientation',
     long_relationships: 'Serious relationships',
+    current_relationship: 'Currently in a relationship',
+    current_relationship_length: 'Relationship duration',
     social_life: 'Social life',
     dating_apps: 'Dating apps',
     university: 'University',
@@ -421,6 +438,19 @@ const en: Translations = {
       text: 'How many serious relationships have you had?',
       subtext: 'Longer than 3 months.',
       options: { ninguna: 'None', una: 'One', dos: 'Two', tres_mas: 'Three or more' },
+    },
+    current_relationship: {
+      text: 'Are you currently in a relationship?',
+      options: { no: 'No', si: 'Yes' },
+    },
+    current_relationship_length: {
+      text: 'How long have you been together?',
+      options: {
+        lt_1y: 'Less than 1 year',
+        '1_2y': '1 to 2 years',
+        '2_5y': '2 to 5 years',
+        gt_5y: 'More than 5 years',
+      },
     },
     social_life: {
       text: 'How active is your social life?',

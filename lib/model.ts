@@ -77,6 +77,16 @@ const v1_0: ModelConfig = {
       dos: 1,
       tres_mas: 2,
     },
+    current_relationship: {
+      no: 0,
+      si: -0.5,
+    },
+    current_relationship_length: {
+      lt_1y: -0.5,
+      '1_2y': -1.5,
+      '2_5y': -3.0,
+      gt_5y:  -4.5,
+    },
     social_life: {
       muy_baja: -2,
       baja: -1,
@@ -226,6 +236,8 @@ const v1_0: ModelConfig = {
     sex: 'Sexo',
     orientation: 'Orientación',
     long_relationships: 'Relaciones largas',
+    current_relationship: 'Tiene pareja',
+    current_relationship_length: 'Tiempo en pareja',
     social_life: 'Vida social',
     dating_apps: 'Apps de citas',
     university: 'Carrera universitaria',

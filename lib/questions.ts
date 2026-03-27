@@ -1,19 +1,23 @@
 import type { Question, Answers } from '@/types'
 
 // ── Base phase IDs ────────────────────────────────────────────────────────────
-// 7 fixed questions + erasmus (conditional on university=sí) + attractiveness.
-// → carrera=sí path:  9 questions
-// → carrera=no path:  8 questions
+// 9 fixed questions + erasmus (conditional on university=sí)
+//                   + current_relationship_length (conditional on current_relationship=sí)
+//                   + attractiveness.
+// → carrera=sí, con pareja path:  12 questions
+// → carrera=no, sin pareja path:   9 questions
 export const BASE_QUESTION_IDS = [
   'age',
   'sex',
   'orientation',
+  'current_relationship',        // ¿Tienes pareja actualmente?
+  'current_relationship_length', // showIf: current_relationship === 'si'
   'long_relationships',
   'social_life',
   'dating_apps',
   'university',
   'erasmus',        // showIf: university === 'si'
-  'attractiveness', // moved from extended — strong universal signal
+  'attractiveness',
 ] as const
 
 // Returns the visible base questions given current answers.
@@ -86,6 +90,27 @@ export const ALL_QUESTIONS: Question[] = [
     ],
   },
   {
+    id: 'current_relationship',
+    text: '¿Tienes pareja actualmente?',
+    type: 'single-choice',
+    options: [
+      { label: 'No', value: 'no' },
+      { label: 'Sí', value: 'si' },
+    ],
+  },
+  {
+    id: 'current_relationship_length',
+    text: '¿Cuánto tiempo llevas con tu pareja?',
+    type: 'single-choice',
+    showIf: (a) => a.current_relationship === 'si',
+    options: [
+      { label: 'Menos de 1 año',   value: 'lt_1y' },
+      { label: 'Entre 1 y 2 años', value: '1_2y'  },
+      { label: 'Entre 2 y 5 años', value: '2_5y'  },
+      { label: 'Más de 5 años',    value: 'gt_5y' },
+    ],
+  },
+  {
     id: 'long_relationships',
     text: '¿Cuántas relaciones largas has tenido?',
     subtext: 'Más de 3 meses.',
@@ -97,6 +122,7 @@ export const ALL_QUESTIONS: Question[] = [
       { label: 'Tres o más', value: 'tres_mas' },
     ],
   },
+
   {
     id: 'social_life',
     text: '¿Sales mucho?',
