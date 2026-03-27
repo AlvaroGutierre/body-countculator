@@ -82,10 +82,10 @@ const v1_0: ModelConfig = {
       si: -0.5,
     },
     current_relationship_length: {
-      lt_1y: -0.5,
-      '1_2y': -1.5,
-      '2_5y': -3.0,
-      gt_5y:  -4.5,
+      lt_1y:  0,
+      '1_2y': -0.5,
+      '2_5y': -1.0,
+      gt_5y:  -1.5,
     },
     social_life: {
       muy_baja: -2,

@@ -3,6 +3,18 @@ import { ALL_QUESTIONS } from '@/lib/questions'
 import { computePercentile } from '@/lib/population'
 import { getActiveModelConfig } from '@/lib/model'
 
+// Age × current-relationship-duration interaction.
+// The additive weights can't express that a 5-year relationship at 22 leaves
+// only ~2 "free" years before it started. This table adds an extra deduction
+// that grows when youth and relationship length overlap significantly.
+// Only young age buckets are listed; 27+ is already handled by the base weights.
+const AGE_REL_INTERACTION: Partial<Record<string, Partial<Record<string, number>>>> = {
+  '<=20':  {                  '2_5y': -1.0, gt_5y: -1.5 },
+  '21-23': { '1_2y': -0.5,   '2_5y': -1.5, gt_5y: -2.0 },
+  '24-26': {                  '2_5y': -0.5, gt_5y: -1.0 },
+  '27-30': {                               gt_5y: -0.5  },
+}
+
 export function calculate(answers: Answers): CalculationResult {
   const config = getActiveModelConfig()
   const { adjustments, factorLabels, params } = config
@@ -22,7 +34,14 @@ export function calculate(answers: Answers): CalculationResult {
     total += impact
   }
 
-  const estimatedValue = Math.max(0, Math.round(total))
+  // Apply age × relationship-length interaction if the user has a current partner.
+  if (answers.current_relationship === 'si') {
+    total += AGE_REL_INTERACTION[answers.age ?? '']?.[answers.current_relationship_length ?? ''] ?? 0
+  }
+
+  // If the user has a current partner they have at least 1 partner — floor accordingly.
+  const floor = answers.current_relationship === 'si' ? 1 : 0
+  const estimatedValue = Math.max(floor, Math.round(total))
 
   const answeredCount   = Object.keys(answers).length
   const confidenceScore = Math.min(1, answeredCount / params.referenceQuestionCount)
