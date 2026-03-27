@@ -47,8 +47,19 @@ export function saveSession(
         model_version: MODEL_VERSION,
       })
       .then(({ error }) => {
-        if (error) console.warn('[storage] submission insert failed', error.message)
+        if (error) {
+          console.error('[storage] submissions insert failed', {
+            message: error.message,
+            code: error.code,
+            details: (error as { details?: string }).details,
+            hint: (error as { hint?: string }).hint,
+          })
+        } else {
+          console.log('[storage] submissions insert ok', sessionId)
+        }
       })
+  } else {
+    console.warn('[storage] supabase client is null — submissions insert skipped')
   }
 
   return sessionId
@@ -92,8 +103,19 @@ export function saveFeedback(feedback: FeedbackData): void {
         timestamp: feedback.timestamp,
       })
       .then(({ error }) => {
-        if (error) console.warn('[storage] feedback insert failed', error.message)
+        if (error) {
+          console.error('[storage] feedback insert failed', {
+            message: error.message,
+            code: error.code,
+            details: (error as { details?: string }).details,
+            hint: (error as { hint?: string }).hint,
+          })
+        } else {
+          console.log('[storage] feedback insert ok', feedback.sessionId)
+        }
       })
+  } else {
+    console.warn('[storage] supabase client is null — feedback insert skipped')
   }
 }
 
