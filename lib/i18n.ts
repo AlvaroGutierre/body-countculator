@@ -75,7 +75,7 @@ const es: Translations = {
     description:
       'Un algoritmo estima tu bodycount a partir de tu perfil.\nSin juicios. Sin registro. Solo datos.',
     cta: 'Empezar ahora',
-    ctaNote: '~3 min · Sin registro · Tus datos no salen de tu dispositivo',
+    ctaNote: '~3 min · Completamente anónimo',
     stats: { submissions: 'estimaciones', feedbacks: 'feedbacks', model: 'modelo actual' },
     modelNote:
       'El modelo mejora con cada estimación. Los pesos actuales son heurísticos; cuando haya suficientes datos con feedback, se calibrarán por versión.',
