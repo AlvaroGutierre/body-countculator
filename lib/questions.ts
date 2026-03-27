@@ -273,7 +273,7 @@ export const ALL_QUESTIONS: Question[] = [
 
   {
     id: 'plays_sport',
-    text: '¿Juegas deporte?',
+    text: '¿Juegas en equipo o compites?',
     type: 'single-choice',
     showIf: isMale,
     options: [
@@ -300,7 +300,7 @@ export const ALL_QUESTIONS: Question[] = [
     id: 'female_attention',
     text: '¿Te suelen entrar mucho?',
     type: 'single-choice',
-    showIf: isFemale,
+    showIf: (a) => isFemale(a) && !highSocialOrApps(a),
     options: [
       { label: 'Poco',     value: 'pocos'    },
       { label: 'Algo',     value: 'algunos'  },

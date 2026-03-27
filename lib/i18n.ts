@@ -131,7 +131,7 @@ const es: Translations = {
     image_care: 'Imagen personal',
     fitness: 'Deporte',
     meeting_new_people: 'Conocer gente',
-    plays_sport: 'Juega deporte',
+    plays_sport: 'Deporte en equipo',
     sport_level: 'Nivel deportivo',
     female_attention: 'Atención recibida',
     female_selectivity: 'Selectividad',
@@ -258,7 +258,7 @@ const es: Translations = {
       },
     },
     plays_sport: {
-      text: '¿Juegas deporte?',
+      text: '¿Juegas en equipo o compites?',
       options: { no: 'No', si: 'Sí' },
     },
     sport_level: {
