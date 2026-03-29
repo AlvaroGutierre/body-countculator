@@ -100,7 +100,7 @@ const es: Translations = {
   },
   midpoint: {
     badge: 'Estimación preliminar',
-    withQuestions: (n) => `Con ${n} preguntas, el rango es todavía amplio.`,
+    withQuestions: (n) => `Con ${n} preguntas, el rango todavía es amplio.`,
     remaining: (n) =>
       `${n} preguntas más reducirán el rango, subirán la confianza y desbloquearán el desglose de factores.`,
     confidenceLabel: 'Confianza actual',
