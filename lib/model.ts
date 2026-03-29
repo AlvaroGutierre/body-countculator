@@ -145,6 +145,11 @@ const v1_0: ModelConfig = {
       ciudad_mediana: 0,
       gran_ciudad: 1,
     },
+    social_life_location: {
+      pueblo: -0.5,  // vive y socializa en pueblo → refuerza penalización
+      mixto:   0,    // neutral
+      ciudad:  0.5,  // vive en pueblo pero socializa en ciudad → atenúa penalización
+    },
     cultural_environment: {
       conservador: -2,
       intermedio: 0,
@@ -248,6 +253,7 @@ const v1_0: ModelConfig = {
     nightlife: 'Vida nocturna',
     tattoos: 'Tatuajes',
     living_environment: 'Entorno',
+    social_life_location: 'Vida social (ubicación)',
     cultural_environment: 'Entorno cultural',
     economic_ease: 'Economía',
     image_care: 'Imagen personal',

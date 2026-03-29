@@ -35,6 +35,8 @@ export interface Translations {
     answeredLabel: string
     continueBtn: string
     viewBtn: string
+    continueTitle: string
+    preliminaryNote: string
   }
   confidence: Record<string, string>
   /** Short labels for the factor breakdown panel (keyed by question id). */
@@ -105,6 +107,8 @@ const es: Translations = {
     answeredLabel: 'Respondidas',
     continueBtn: 'Continuar y afinar →',
     viewBtn: 'Ver este resultado',
+    continueTitle: '¿Continuar?',
+    preliminaryNote: 'Este no es tu resultado definitivo.',
   },
   confidence: {
     Baja: 'Baja',
@@ -128,6 +132,7 @@ const es: Translations = {
     nightlife: 'Vida nocturna',
     tattoos: 'Tatuajes',
     living_environment: 'Entorno',
+    social_life_location: 'Vida social (ubicación)',
     cultural_environment: 'Entorno cultural',
     economic_ease: 'Economía',
     image_care: 'Imagen personal',
@@ -228,6 +233,7 @@ const es: Translations = {
     },
     dating_frequency: {
       text: '¿Con qué frecuencia tienes citas?',
+      subtext: 'Cuenta citas con personas diferentes, no varias veces con la misma.',
       options: {
         casi_nunca: 'Casi nunca', ocasionalmente: 'De vez en cuando',
         frecuencia: 'Bastante', muy_a_menudo: 'Muy a menudo',
@@ -248,6 +254,14 @@ const es: Translations = {
     living_environment: {
       text: '¿Dónde vives?',
       options: { pueblo: 'Pueblo', ciudad_mediana: 'Ciudad mediana', gran_ciudad: 'Gran ciudad' },
+    },
+    social_life_location: {
+      text: '¿Dónde haces realmente tu vida social?',
+      options: {
+        pueblo: 'Principalmente en mi pueblo',
+        mixto:  'Mitad pueblo, mitad ciudad',
+        ciudad: 'Principalmente en ciudad',
+      },
     },
     cultural_environment: {
       text: '¿Tu entorno es...?',
@@ -352,6 +366,8 @@ const en: Translations = {
     answeredLabel: 'Answered',
     continueBtn: 'Continue & refine →',
     viewBtn: 'See this result',
+    continueTitle: 'Continue?',
+    preliminaryNote: 'This is not your final result.',
   },
   confidence: {
     Baja: 'Low',
@@ -375,6 +391,7 @@ const en: Translations = {
     nightlife: 'Nightlife',
     tattoos: 'Tattoos',
     living_environment: 'Environment',
+    social_life_location: 'Social life (location)',
     cultural_environment: 'Cultural context',
     economic_ease: 'Financial situation',
     image_care: 'Personal image',
@@ -481,6 +498,7 @@ const en: Translations = {
     },
     dating_frequency: {
       text: 'How often do you go on dates?',
+      subtext: 'Count dates with different people, not multiple dates with the same person.',
       options: {
         casi_nunca: 'Almost never', ocasionalmente: 'Occasionally',
         frecuencia: 'Fairly often', muy_a_menudo: 'Very often',
@@ -507,6 +525,14 @@ const en: Translations = {
     living_environment: {
       text: 'Where do you live?',
       options: { pueblo: 'Small town', ciudad_mediana: 'Medium city', gran_ciudad: 'Big city' },
+    },
+    social_life_location: {
+      text: 'Where does your social life actually happen?',
+      options: {
+        pueblo: 'Mostly in my hometown',
+        mixto:  'Split between town and city',
+        ciudad: 'Mostly in the city',
+      },
     },
     cultural_environment: {
       text: 'How would you describe your environment?',

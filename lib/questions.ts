@@ -184,6 +184,7 @@ export const ALL_QUESTIONS: Question[] = [
   {
     id: 'dating_frequency',
     text: '¿Con qué frecuencia tienes citas?',
+    subtext: 'Cuenta citas con personas diferentes, no varias veces con la misma.',
     type: 'single-choice',
     options: [
       { label: 'Casi nunca',    value: 'casi_nunca'    },
@@ -234,6 +235,17 @@ export const ALL_QUESTIONS: Question[] = [
       { label: 'Pueblo',         value: 'pueblo'         },
       { label: 'Ciudad mediana', value: 'ciudad_mediana' },
       { label: 'Gran ciudad',    value: 'gran_ciudad'    },
+    ],
+  },
+  {
+    id: 'social_life_location',
+    text: '¿Dónde haces realmente tu vida social?',
+    type: 'single-choice',
+    showIf: (a) => a.living_environment === 'pueblo',
+    options: [
+      { label: 'Principalmente en mi pueblo', value: 'pueblo' },
+      { label: 'Mitad pueblo, mitad ciudad',  value: 'mixto'  },
+      { label: 'Principalmente en ciudad',    value: 'ciudad' },
     ],
   },
   {

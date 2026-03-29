@@ -104,6 +104,14 @@ export default function MidpointScreen({
           </p>
         </div>
 
+        {/* Continue heading */}
+        <div className="text-center space-y-1" style={show(1000)}>
+          <h2 className="text-3xl font-black tracking-tight text-white">
+            {T.midpoint.continueTitle}
+          </h2>
+          <p className="text-xs text-amber-400/80">{T.midpoint.preliminaryNote}</p>
+        </div>
+
         {/* CTAs */}
         <div className="flex flex-col gap-3" style={show(1050)}>
           <button
