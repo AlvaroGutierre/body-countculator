@@ -22,7 +22,12 @@ export default function LocaleProvider({ children }: { children: React.ReactNode
 
   useEffect(() => {
     const stored = localStorage.getItem('bc_locale') as Locale | null
-    if (stored === 'es' || stored === 'en') setLocaleState(stored)
+    if (stored === 'es' || stored === 'en') {
+      setLocaleState(stored)
+    } else {
+      const lang = (navigator.languages?.[0] ?? navigator.language ?? '').toLowerCase()
+      setLocaleState(lang.startsWith('es') ? 'es' : 'en')
+    }
   }, [])
 
   const setLocale = (l: Locale) => {

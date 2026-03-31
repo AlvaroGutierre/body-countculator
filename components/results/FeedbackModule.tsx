@@ -87,8 +87,11 @@ export default function FeedbackModule({ sessionId, estimatedValue }: FeedbackMo
   }
 
   return (
-    <div className="rounded-2xl border border-white/10 bg-white/[0.03] p-6 space-y-4">
-      <p className="text-sm font-medium text-white">{T.question}</p>
+    <div className="rounded-2xl border border-white/20 bg-white/[0.05] p-6 space-y-4">
+      <div className="space-y-1">
+        <p className="text-base font-semibold text-white">{T.question}</p>
+        <p className="text-xs text-zinc-500">{T.thanksNote}</p>
+      </div>
       <div className="flex flex-col gap-2">
         <button
           onClick={() => submit('correct')}

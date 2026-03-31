@@ -148,11 +148,16 @@ export default function ResultsView() {
           </p>
         </div>
 
+        {/* Feedback */}
+        <div style={show(750)}>
+          <FeedbackModule sessionId={sessionId} estimatedValue={result.estimatedValue} />
+        </div>
+
         {/* Stats row */}
         <div className="grid grid-cols-2 gap-3">
           <div
             className="rounded-2xl border border-white/8 bg-white/[0.025] p-5 space-y-1.5"
-            style={show(750)}
+            style={show(1050)}
           >
             <p className="text-xs text-zinc-600">{T.results.percentileTitle}</p>
             <p className="text-2xl font-bold text-white">{result.percentile}º</p>
@@ -162,7 +167,7 @@ export default function ResultsView() {
           </div>
           <div
             className={`rounded-2xl border p-5 space-y-1.5 ${CONFIDENCE_STYLES[result.confidenceLabel]}`}
-            style={show(900)}
+            style={show(1200)}
           >
             <p className="text-xs opacity-60">{T.results.confidenceTitle}</p>
             <p className="text-2xl font-bold">
@@ -176,7 +181,7 @@ export default function ResultsView() {
         {result.factorBreakdown.length > 0 && (
           <div
             className="rounded-2xl border border-white/8 bg-white/[0.025] p-6 space-y-5"
-            style={show(1050)}
+            style={show(1350)}
           >
             <h3 className="text-sm font-semibold text-white">{T.results.topFactors}</h3>
             <div className="space-y-4">
@@ -190,7 +195,7 @@ export default function ResultsView() {
                   <div
                     key={factor.label}
                     className="flex items-center justify-between gap-4"
-                    style={show(1050 + i * 80)}
+                    style={show(1350 + i * 80)}
                   >
                     <div className="min-w-0">
                       <p className="text-sm text-zinc-300 truncate">{displayLabel}</p>
@@ -204,13 +209,8 @@ export default function ResultsView() {
           </div>
         )}
 
-        {/* Feedback */}
-        <div style={show(1300)}>
-          <FeedbackModule sessionId={sessionId} estimatedValue={result.estimatedValue} />
-        </div>
-
         {/* Restart */}
-        <div className="text-center" style={show(1400)}>
+        <div className="text-center" style={show(1600)}>
           <button
             onClick={() => router.push('/')}
             className="text-xs text-zinc-700 hover:text-zinc-500 transition-colors"
